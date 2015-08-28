@@ -1,0 +1,26 @@
+- cd is special, chdir isn't
+- . is special, source isn't
+- no for (( ))
+- stupid hacks like let]
+- no associative arrays
+- no procsub
+- array elements can have negative values
+  - it makes sense but arr[-1] in bash is useful and saves espansions
+- arrays are the slowest thing ever created
+  - arr=( $(<file) )      takes *4 MINUTES* if file is 100k lines
+    - 4 minutes in r50f, 1 minute in r51
+  - other shells take 0.2s or less
+  - arrays are probably linked lists with quadratic access time(?)
+- vi mode doesn't work with utf8 characters
+- no nullglob or failglob
+- no {1..1000} or {a..z}
+- no pipefail or PIPESTATUS
+- weird ideas like 3&> file == 3> file 2>&3   (why 2> ?)
+- no programmable completion
+- time format can't be changed
+- nonsense limitations    mksh: >&24 : file descriptor too large
+- undocumented stuff like 3>&| or the 24 max fd, lack of an help command
+- mira complains about bashisms, copies non posix stuff from ksh
+- 32 bit math
+- no indirection
+- no ${array[@]/x/y}

@@ -1,0 +1,24 @@
+- in a new shell, $status is false and exit causes an exit code 1
+- inconsistent parser(?)
+  - ~ can tell whether its args were quoted or not
+- if not   <- ew.
+- lack of every useful feature
+  - not even echo
+  - not even job control, ffs
+    - ^Z breaks everything
+  - reading input line by line requires an external read that doesn't buffer
+    - tom duff shows a naive read, awk likely buffers
+      http://doc.cat-v.org/plan_9/4th_edition/papers/rc
+      it can't be used in a while loop anyway because of its exit status
+  - expr is the only way to increment a number
+- all variables are exported
+- ALL FUNCTIONS are exported   <- ewww.
+- local variables with  var = value cmd
+  - functions can't declare new local variables
+- very newline sensitive
+  - switch cases need \n before and after
+  - arrays can't have newlines between elements
+  - while ( ) can have newlines, for ( ) can't
+- x = var for ($x in a b c) echo $var  <- some sort of indirection?
+- list = ( a b c ) for ( $"list in x ) echo x  <- accepts invalid names
+- (arguments) is completely pointless

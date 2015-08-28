@@ -1,0 +1,23 @@
+- no programmable completion, trap KEYBD is not a sane alternative
+  - added compgen and complete in 2014, undocumented in the man page
+- plenty of stupid parser bugs:
+  - (( pow(2,3) )) ok   (( pow (2,3) )) error
+  - cmd 10>&1  is ok    { cmd; } 10>&1  is not
+  - functions with parameters, but only if math
+    - function .sh.math.double x { (( .sh.value = 2 * x )) }  ok
+    - function a b c { ... }  creates a function named a and ignores b c
+    - much less flexible, must have the right number of parameters
+      - could easily ignore extra parameters and set 0 the missing ones
+- plenty of bugs overall:
+  - echo $VAR<tab>    ksh: line 1: ${!VAR$@: bad substitution    wtf
+  - after using ${arr[a..b]}, unsetting arr[x] removes all the elements after x
+- random error messages    echo ${${a}} -> ksh: syntax error: `!' unexpected
+- faster than bash and zsh but still painfully slow compared to any other
+  language
+- documentation sucks
+  - man page doesn't document everything
+  - for some builtins there are --man and --help
+    - they provide different information
+    - some builtins have neither
+- dead mailing list
+- stupid version number

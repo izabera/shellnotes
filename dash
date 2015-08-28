@@ -1,0 +1,5 @@
+- for some reason, ${#@} == length of $* as a single string
+  - in any other shell ${#@} == $#
+- all the obvious problems of being posix
+- only faster than bash for trivial code, anything even minimally complex
+  is faster in bash (both to write and to execute)

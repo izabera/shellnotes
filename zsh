@@ -1,0 +1,29 @@
+- no sparse arrays
+- empty elements from unquoted parameter expansions are removed
+  - pro: it avoids   rm $foo $bar $baz -> file not found '' x3
+  - con: it actually destroys your data   params=($@)
+- $( ) is always split because consistency
+- no printf -v
+- procsub is not async like in bash or ksh:    : >(sleep 2)
+  - of course with exec it's different because consistency
+- echo $(echo $RANDOM) $(echo $RANDOM)
+- emulate *shellname* doesn't actually work, for any shell
+  - csh:
+    - never works, completely different syntax
+  - ksh:
+    - no ${ cmd;}
+    - no {a,b}(glob)
+    - no math library or user defined math functions
+    - no <#((expr)) or <#pattern..
+    - no {a..b..c%fmt} and brace expansion is still zsh's (arguably better)
+    - no static scope
+    - pretty much a subset of ksh88
+  - bash:
+    - supported as an alias for sh but completely undocumented
+  - sh:
+    - actually this works ok but it's stupid because posix
+- much slower than ksh
+- its parser is stricter and doesn't support stuff like  local arr=(a b c)
+- zcompile doesn't actually compile, it pretty much saves the preparsed form
+- time can't time builtins and functions
+- no namerefs

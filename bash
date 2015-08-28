@@ -1,0 +1,12 @@
+- history -w can write to any file even in restricted shells
+- readonly variables can't be local
+- stupid scoping problems make namerefs almost unusable
+  - same in mksh
+- traps are just text macros that are injected inside a piece of code and they
+  can reference variables that have different values from what you expect
+  - probably the same in most other shells
+- so fucking slow
+- pitfalls like ${arr[@]:5:10} with sparse arrays have no easy workaround
+  - same in mksh
+- readline is clearly inferior to zle
+- info and man are almost equivalent (but not quite...)
