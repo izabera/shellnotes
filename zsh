@@ -9,7 +9,7 @@
 - echo $(echo $RANDOM) $(echo $RANDOM)
 - emulate *shellname* doesn't actually work, for any shell
   - csh:
-    - never works, completely different syntax
+    - never works, completely different syntax, nor is documented.
   - ksh:
     - no ${ cmd;}
     - no {a,b}(glob)
@@ -20,10 +20,11 @@
     - pretty much a subset of ksh88
   - bash:
     - supported as an alias for sh but completely undocumented
+      - emulate blastiose also works, anything starting with a b.
   - sh:
     - actually this works ok but it's stupid because posix
 - much slower than ksh
-- its parser is stricter and doesn't support stuff like  local arr=(a b c)
+- typeset/local/export/etc are builtin commands in zsh <= 5.0.8; so you can't do  local arr=(a b c)
 - zcompile doesn't actually compile, it pretty much saves the preparsed form
 - time can't time builtins and functions
 - no namerefs
