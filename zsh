@@ -3,7 +3,7 @@
   - pro: it avoids   rm $foo $bar $baz -> file not found '' x3
   - con: it actually destroys your data   params=($@)
 - $( ) is always split because consistency
-- no printf -v
+- no printf -v; an alternative is  print -rz -- word; IFS= read -rz var
 - procsub is not async like in bash or ksh:    : >(sleep 2)
   - of course with exec it's different because consistency
 - echo $(echo $RANDOM) $(echo $RANDOM)
@@ -28,3 +28,13 @@
 - zcompile doesn't actually compile, it pretty much saves the preparsed form
 - time can't time builtins and functions
 - no namerefs
+- the parameter _ is readonly in pre-5.x, so idiomatic use of it as a throw away variable isn't possible
+- [[ cannot span across multiple lines
+- removing numerical array elements is done with  arr[2]=()
+  - using the unset builtin will just make it an empty string
+  - you unset associative array elements _with_ unset, because consistency
+- variable expansion works in glob qualifiers/flags, not in parameter expansion flags
+- without looking at the man page what does this do? unsetopt +o nonomatch
+- nested expansions is great, until you read _git
+- user defined math functions return the last expression evaluated in the current shell.
+  - e.g: add() ( for arg; (( ret += $arg))); functions -M add; print $(( add(1,2,3,4) )) will return 4
