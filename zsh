@@ -20,7 +20,7 @@
     - pretty much a subset of ksh88
   - bash:
     - supported as an alias for sh but completely undocumented
-      - emulate blastiose also works, anything starting with a b.
+      - emulate blastoise also works, anything starting with a b.
   - sh:
     - actually this works ok but it's stupid because posix
 - much slower than ksh
