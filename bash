@@ -10,3 +10,6 @@
   - same in mksh
 - readline is clearly inferior to zle
 - info and man are almost equivalent (but not quite...)
+- with globstar enabled, the pattern ** will recurse directories; because it is obviously the same as **/*
+  - the pattern foo** will not recurse, because consistency
+- brace expansion happens before parameter expansion, so {$start..$end} does not work.
