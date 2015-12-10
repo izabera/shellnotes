@@ -21,4 +21,4 @@
   - while ( ) can have newlines, for ( ) can't
 - x = var for ($x in a b c) echo $var  <- some sort of indirection?
 - list = ( a b c ) for ( $"list in x ) echo x  <- accepts invalid names
-- (arguments) is completely pointless
+- allows $x $$x $$$x, even $`{echo x}

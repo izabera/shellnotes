@@ -24,3 +24,7 @@
 - 32 bit math
 - no indirection
 - no ${array[@]/x/y}
+- uses tmp files for ${ cmd ; }, so does ksh93
+- typeset -f prints the internal representation of a function (which is good)
+  - in r40 (android) (( x )) becomes    let " x "   (which looks weird)
+  - in r51 (( x )) becomes    \let] " x "   (which looks even worse)
