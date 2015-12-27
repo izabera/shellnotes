@@ -38,5 +38,6 @@
 - nested expansions is great, until you read _git
 - user defined math functions return the last expression evaluated in the current shell.
   - e.g: add() ( for arg; (( ret += $arg))); functions -M add; print $(( add(1,2,3,4) )) will return 4
+- hard limit on math recursion set at compile time
 - [ "(" = ")" ] is true, which is what posix says but it means you need x$var
   - [ ! -o ] is also true

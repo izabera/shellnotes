@@ -21,7 +21,7 @@
 - nonsense limitations    mksh: >&24 : file descriptor too large
 - undocumented stuff like 3>&| or the 24 max fd, lack of an help command
 - mira complains about bashisms, copies non posix stuff from ksh
-- 32 bit math
+- 32 bit math and no **
 - no indirection
 - no ${array[@]/x/y}
 - uses tmp files for ${ cmd ; }, so does ksh93
