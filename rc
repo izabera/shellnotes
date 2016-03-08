@@ -22,3 +22,11 @@
 - x = var for ($x in a b c) echo $var  <- some sort of indirection?
 - list = ( a b c ) for ( $"list in x ) echo x  <- accepts invalid names
 - allows $x $$x $$$x, even $`{echo x}
+- no equivalent of exec 4> file
+- <> opens a file for reading and writing but it's entirely undocumented
+  - doesn't open with O_CREAT so it fails if the file doesn't exist
+- exec can't set up redirections and there's no equivalent afaik
+- -e sucks
+  - exits on the first *simple* command that returns false,
+    even inside a *compound* command.  somewhat similar to -eE in bash
+  - ! doesn't actually invert the exit code wrt -e
