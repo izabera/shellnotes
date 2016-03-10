@@ -6,10 +6,26 @@
   can reference variables that have different values from what you expect
   - probably the same in most other shells
 - so fucking slow
+  - want to make your code faster?  use shorter variable names.  really.
 - pitfalls like ${arr[@]:5:10} with sparse arrays have no easy workaround
   - same in mksh
 - readline is clearly inferior to zle
 - info and man are almost equivalent (but not quite...)
-- with globstar enabled, the pattern ** will recurse directories; because it is obviously the same as **/*
+- with globstar enabled, the pattern ** will recurse directories; because it is
+  obviously the same as **/*
   - the pattern foo** will not recurse, because consistency
+  - **/*  globstar follows symlinks if there's something after **
 - brace expansion happens before parameter expansion, so {$start..$end} does not work.
+- ls > ${var1=x}; : > ${var2=x}; echo "<$var1><$var2>"    <- assigns after forking
+- there is no reason at all to expand $var in      cat <<< $var
+  - even worse, it expands unquoted variables in    cat < $var
+    this is totally pointless and it only causes errors
+- buggy ?(/)
+- a name is a valid function name if it has no $ or quotes or \
+  - but extglobs can bypass that check so this is valid    @(  \\\ $'hi \n  mom'   ) () { :; }
+- stupid and hacky things like     x=array[@]; echo "${!x} ${array[@]}"
+  - ${!x[@]} expands to 0 because reasons
+  - ${!x[0]} is an array because logic
+- command_not_found_handle runs in a subshell
+- extglob isn't on by default after 20something years
+- foo=abcdef; echo "${foo[0]best parser evur#abc}"
