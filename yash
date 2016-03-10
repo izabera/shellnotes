@@ -1,0 +1,2 @@
+- one of the two shells that implemented zsh's recursive globbing correctly, the other being tcsh
+  - extended upon the syntax for matching dotfiles due to the lack of glob qualifiers. .** and .*** 
