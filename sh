@@ -10,6 +10,8 @@ a few examples to clarify how stupid this is:
   - several shells accept this, ignoring that +c is invalid
 - bash -oeOfci vi extglob 'echo hello world'
   - bash add -O with the same semantics because it was such a great idea
+- sh -co vi :
+  - even if -c comes before -o, the next argument is a parameter for -o
 
 no sane human would ever use this
 i'm willing to bet that >90% of shell programmers don't even know how it works
